@@ -1,8 +1,6 @@
-Constraining Programming for more power.
+### TLDR:
 
-TLDR:
-
-Datalog is SQL + Recursion. It's derivatives have reduced the code base by 50% or more.
+Datalog is like SQL + Recursion. It's derivatives have reduced the code base by 50% or more.
 
 Today, I would like to explore a constrained  language called Datalog. It's a constrained form of Prolog and may not be as expressive as C++ or Python. But it's derivatives have known to reduce the numbers of lines of code down by 50% or more([Overlog](https://dl.acm.org/citation.cfm?id=1755913.1755937), [Yedalog](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/43462.pdf)). 
 
@@ -108,7 +106,11 @@ But I wanted to  use Datalog in my day to day programming. I wanted to see if I 
 
 So I built [Mercylog](https://github.com/RAbraham/mercylog) in Python. 
 
-So let's translate the above rules to Mercylog syntax. 
+So let's translate the above rules to Mercylog syntax.
+
+If you are using the Bashlog variant,
+ - then you need Java 8 already installed
+ - `pip install mercylog` 
    
 ```python
 m = mercylog.BashlogV1()
@@ -186,12 +188,12 @@ rules = [
 ```
 
 In this way, using Python, we have modularized a pattern using the `transitive` function.
-========
 
-The benefits
-- Just one syntax statement and a few rules
-- Expressive. Compare to data frames and show how easy it is to do deductive statements.
-- Fast? Because it’s simple, we can build compilers to more complex implementations and leverage other implementations
-- declarative. Like SQL but more expressive.
-- Reactive? Pydatalog makes that argument? 
-- Look at Pydatalog for other benefits?
+
+Let's recap the benefits of Mercylog
+- Simple Syntax. All you need to know is facts and rules. Because of such simplicity, it is also easy to build compilers for it.
+- Expressive. Rules give a powerful mechanism 
+- Declarative. Like SQL but more expressive.
+
+
+I'll continue to update you with my future learnings!
