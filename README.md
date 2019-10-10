@@ -87,7 +87,7 @@ I was always interested in the Datalog syntax and it's power. I kept delaying it
 
 With Bashlog, you can run any bash like command and read that using Bashlog. Imagine there was a file('~/data.tsv') with tab separated values of
 ```bash
-Aks	Bob
+Aks Bob
 Bob Cad
 Yan Zer
 ```
