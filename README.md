@@ -83,7 +83,7 @@ grandfather(X,_) # ['Aks']
 Here '_' is a special variable indicating that you don't care for the result.
 
 
-I was always interested in the Datalog syntax and it's power. I kept delaying it until I met Bashlog. Because, the *syntax of datalog is so simple*, it makes it *easy to write interpeters* for different targets. What Bashlog did was take Datalog syntax and convert it to bash scripts! Because, it used awk(* mawk actually), sed, grep, which are tuned for high performance on Unix like platforms, it was incredibly fast in parsing big text files comparable with all the specialized databases out there. Just Bash Scripts. It blew my mind. So if you are interested in pure Datalog, check out Bashlog(Raj: Link)
+I was always interested in the Datalog syntax and it's power. I kept delaying it until I met [Bashlog](https://github.com/thomasrebele/bashlog). Because, the *syntax of datalog is so simple*, it makes it *easy to write interpeters* for different targets. What Bashlog did was take Datalog syntax and convert it to bash scripts! Because, it used awk(* mawk actually), sed, grep, which are tuned for high performance on Unix like platforms, it was incredibly fast in parsing big text files comparable with all the specialized databases out there. Just Bash Scripts. It blew my mind. So if you are interested in pure Datalog, check out Bashlog
 
 With Bashlog, you can run any bash like command and read that using Bashlog. Imagine there was a file('~/data.tsv') with tab separated values of
 ```bash
