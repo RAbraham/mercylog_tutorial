@@ -108,11 +108,30 @@ So I built [Mercylog](https://github.com/RAbraham/mercylog) in Python.
 
 So let's translate the above rules to Mercylog syntax.
 
+### Installation
+
 If you are using the Bashlog variant,
  - then you need Java 8 already installed
- - `pip install mercylog` 
-   
+ 
+```bash
+git clone https://github.com/RAbraham/mercylog_tutorial.git
+cd mercylog_tutorial
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python tutorial.py
+```
+That should print
+```bash
+['Aks']
+['Mary']
+```
+
+Read below on the explanation and make tweaks if you want and run `python tutorial.py` again.
+
+### Usage   
 ```python
+import mercylog
 m = mercylog.BashlogV1()
 ```
 ```python
