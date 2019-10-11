@@ -11,7 +11,7 @@ facts = [
     father('Yan', 'Zer'),
     mother('Mary', 'Marla'),
     mother('Marla', 'Kay'),
-    mother('Jane', 'Zanu'),
+    mother('Jane', 'Zanu')
 ]
 
 X = m.variables('X')

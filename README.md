@@ -2,31 +2,43 @@
 
 Datalog is like SQL + Recursion. It's derivatives have reduced the code base by 50% or more.
 
-Today, I would like to explore a constrained  language called Datalog. It's a constrained form of Prolog and may not be as expressive as C++ or Python. But it's derivatives have known to reduce the numbers of lines of code down by 50% or more([Overlog](https://dl.acm.org/citation.cfm?id=1755913.1755937), [Yedalog](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/43462.pdf)). 
+Today, I would like to explore a constrained  language called Datalog. It's a constrained form of Prolog and may not be as expressive as C++ or Python. But it's derivatives have been known to reduce the numbers of lines of code down by 50% or more([Overlog](https://dl.acm.org/citation.cfm?id=1755913.1755937), [Yedalog](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/43462.pdf)). 
 
 Let's get started:
 
 
 Datalog has a *minimalist syntax* which I love. Let's take an example.
-Suppose our data is about fathers and sons. If we had an excel sheet, we would enter the data like:
+Suppose our data is about fathers and sons, mothers and daughters. If we had an excel sheet, we would enter the data like:
 ```
 Father  Son
-'Aks'   'Bob'
-'Bob'   'Cad'
-'Yan'   'Zer'
+Aks     Bob
+Bob     Cad
+Yan     Zer
 ```
-In Datalog, we express the same data as:
+and another excel sheet for mothers and daughters:
+
+```
+Mother  Daughter
+Mary    Marla
+Marla   Kay
+Jane    Zanu
+```
+
+In Datalog, we express the same data as(together):
 
 ```
 father('Aks', 'Bob')
 father('Bob', 'Cad')
 father('Yan', 'Zer')
+mother('Mary', 'Marla')
+mother('Marla', 'Kay')
+mother('Jane', 'Zanu')
 ```
-Here we are trying to say Aks is the father of 'Bob' and 'Bob' is the father of 'Cad'. The datum father('Aks', 'Bob') is called a fact i.e. it is true.
+Here we are trying to say Aks is the father of 'Bob' and 'Bob' is the father of 'Cad'. The datum father('Aks', 'Bob') is called a _**fact**_ i.e. it is true.
 
-So Datalog can be used to express data. Not very interesting so far but a building block. These facts above can also be viewed as the existing state of the system, like we store data in files, or databases.
+So Datalog can be used to express data. Not very interesting so far but a building block. These facts above can also be viewed as the existing state of the system, like we store state in files, or databases.
 
-But that's not enough. What about code? Datalog sees code as rules to be applied declaratively.
+But that's not enough. What about code? For Datalog, code are specified as _*rules*_ to be applied declaratively.
 
 Let's say our program needs to find out who's a grandfather. We could write a rule like:
 'A person X is the grandfather of Z if X is the father of Y and Y is the father of Z'. In Datalog, this rule is written as:
@@ -48,7 +60,7 @@ grandmother(X, Z) :- mother(X,Y), mother(Y, Z)
  Here the `X`, `Z` and `Y` used in `grandfather` are completely different from the `X`, `Y` and `Z` in `grandmother`. In rules, the variables only make sense `in` that single rule. So we can reuse the same logic variables in different rules without worrying that they have some logical connection.
 
 
-The next concept is 'queries'. How do we feed input and get back some output. 
+The next concept is _*queries*_. How do we feed input and get back some output. 
 Queries are similar to rules but without a head.
  
 ```bash
@@ -71,7 +83,7 @@ Datalog will link `Y` for all `mother` and `father` facts and find the mothers a
 
 Now, If you opened a datalog interpreter and fed the above and made the following queries, you would get the results shown after the # sign
 
-query # result
+
 ```
 father(X,_) # ['Aks', 'Bob', 'Yan']
 father(_,X) # ['Bob', 'Cad', 'Zer']
@@ -83,7 +95,7 @@ grandfather(X,_) # ['Aks']
 Here '_' is a special variable indicating that you don't care for the result.
 
 
-I was always interested in the Datalog syntax and it's power. I kept delaying it until I met [Bashlog](https://github.com/thomasrebele/bashlog). Because, the *syntax of datalog is so simple*, it makes it *easy to write interpeters* for different targets. What Bashlog did was take Datalog syntax and convert it to bash scripts! Because, it used awk(* mawk actually), sed, grep, which are tuned for high performance on Unix like platforms, it was incredibly fast in parsing big text files comparable with all the specialized databases out there. Just Bash Scripts. It blew my mind. So if you are interested in pure Datalog, check out Bashlog
+I was always interested in the Datalog syntax and it's power. I kept delaying it until I met [Bashlog](https://github.com/thomasrebele/bashlog). Because, the *syntax of datalog is so simple*, it makes it *easy to write interpeters* for different targets. What Bashlog did was take Datalog syntax and convert it to bash scripts! Because, it used awk(mawk actually), sed, grep, which are tuned for high performance on Unix like platforms, it was incredibly fast in parsing big text files, comparable with all the specialized databases out there. **Just Bash Scripts**. It blew my mind. So if you are interested in pure Datalog, check out Bashlog
 
 With Bashlog, you can run any bash like command and read that using Bashlog. Imagine there was a file('~/data.tsv') with tab separated values of
 ```bash
@@ -139,6 +151,10 @@ m = mercylog.BashlogV1()
 # father('Aks', 'Bob')
 # father('Bob', 'Cad')
 # father('Yan', 'Zer')
+# mother('Mary', 'Marla')
+# mother('Marla', 'Kay')
+# mother('Jane', 'Zanu')
+
 father = m.relation('father')
 mother = m.relation('mother')
 facts = [
@@ -158,7 +174,7 @@ X, Y, Z = m.variables('X', 'Y', 'Z')
 grandfather(X, Z) <= [father(X, Y), father(Y, Z)]
 ```
 
-While in Datalog, you don't have to explicitly state the variables and the relation, as it is inbaked in to the language,  in our library in Python, we need to (e.g. X, Y, Z and father, grandfather)
+While in Datalog, you don't have to explicitly state the variables and the relation, as it is baked in to the language,  in our library in Python, we need to (e.g. X, Y, Z and father, grandfather)
 
 Making a query in python has the following syntax
 ```python
@@ -187,7 +203,7 @@ rules = [
 ] 
 
 ```
-If you notice, the rule for `paternal_grandfather` and `maternal_grandmother` are very similar. I could perhaps encapsulate that into a function. I'll use the word `transitive` though I believe it is wrong in this case but I don't know what to call this. Rewriting the above code:
+If you notice, the rule for `paternal_grandfather` and `maternal_grandmother` are very similar. I could perhaps encapsulate that into a function. I'll use the word `transitive` though I believe it is incorrect to use it.. but I don't know what to call this for now. Rewriting the above code:
 ```python
 
 def transitive(head, clause):
@@ -212,7 +228,7 @@ In this way, using Python, we have modularized a pattern using the `transitive` 
 Let's recap the benefits of Mercylog
 - Simple Syntax. All you need to know is facts and rules. Because of such simplicity, it is also easy to build compilers for it.
 - Expressive. Rules give a powerful mechanism 
-- Declarative. Like SQL but more expressive.
+- Declarative. Like SQL but more expressive. So we can optimize it's engines without affecting the code
 
 
 I'll continue to update you with my future learnings!
