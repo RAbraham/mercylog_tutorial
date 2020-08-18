@@ -36,7 +36,7 @@ mother('Mary', 'Marla')
 mother('Marla', 'Kay')
 mother('Jane', 'Zanu')
 ```
-Here we are trying to say Aks is the father of 'Bob' and 'Bob' is the father of 'Cad'. The datum father('Aks', 'Bob') is called a _**fact**_ i.e. it is true.
+Here we are trying to say `Aks` is the father of `Bob` and `Bob` is the father of `Cad`. The datum `father('Aks', 'Bob')` is called a _**fact**_ i.e. it is true.
 
 So Datalog can be used to express data. Not very interesting so far but a building block. These facts above can also be viewed as the existing state of the system, like we store state in files, or databases.
 
