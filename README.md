@@ -36,23 +36,28 @@ mother('Mary', 'Marla')
 mother('Marla', 'Kay')
 mother('Jane', 'Zanu')
 ```
-Here we are trying to say `Aks` is the father of `Bob` and `Bob` is the father of `Cad`. The datum `father('Aks', 'Bob')` is called a _**fact**_ i.e. it is true.
+Here we are trying to say `Aks` is the father of `Bob` and `Bob` is the father of `Cad`. The datum `father('Aks', 'Bob')` is called a _**fact**_ i.e. it is true. `Aks` and `Bob` are called `terms`.
 
 So Datalog can be used to express data. Not very interesting so far but a building block. These facts above can also be viewed as the existing state of the system, like we store state in files, or databases.
 
 But that's not enough. What about code? For Datalog, code is specified as rules(i.e. `if` like statements) which apply to all the facts in the database. These `if` like statements look slightly different from what you are used in programming languages.
 
-Let's say our program needs to find out who's a grandfather. We could write a rule like:
-'A person X is the grandfather of Z if X is the father of Y and Y is the father of Z'. 
+Let's say our program needs to find out who's a grandfather. In plain English, We would write a rule like:
+
+
+`A person X is the grandfather of Z if X is the father of Y and Y is the father of Z` 
 
 In Datalog, this rule is written as:
  
 ```datalog
 grandfather(X, Z) :- father(X,Y), father(Y, Z)
 ```
-The LHS (i.e. grandfather) is known as the `head` and the RHS after the `:-` is known as the body
+The LHS (i.e. `grandfather`) is known as the `head` and the RHS after the `:-` is known as the `body` of the rule.
 
-X, Y, Z are special variables called logic variables. They are different from regular variables. They are more used to represent a pattern or to link the head and the body.
+
+X, Y, Z are special variables called logic variables. They are different from regular variables. They are used as placeholders for data(e.g. `Aks`) and give a name to link the fact in the head to facts in the body.
+
+---------------> Rename Facts as Relations?
 
 To further understand logical variables, consider these two rules:
 
