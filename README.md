@@ -1,9 +1,11 @@
 ### TLDR:
 
-Datalog is like SQL + Recursion. It's derivatives have reduced the code base by 50% or more.
+Datalog is like SQL + Recursion. Its derivatives have reduced the code base by 50% or more.
 
-Today, I would like to explore a constrained  language called Datalog. It's a constrained form of Prolog and may not be as expressive as C++ or Python. But it's derivatives have been known to reduce the numbers of lines of code down by 50% or more([Overlog](https://dl.acm.org/citation.cfm?id=1755913.1755937), [Yedalog](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/43462.pdf)). 
+### Prelude
+Today, I would like to explore a constrained language called Datalog. Its a constrained form of logic programming(e.g. Prolog) and may not be as expressive as C++ or Python. But its derivatives have been known to reduce the numbers of lines of code down by 50% or more([Overlog](https://dl.acm.org/citation.cfm?id=1755913.1755937), [Yedalog](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/43462.pdf)). 
 
+### Syntax
 Let's get started:
 
 
