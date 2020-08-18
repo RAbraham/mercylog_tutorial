@@ -40,10 +40,12 @@ Here we are trying to say `Aks` is the father of `Bob` and `Bob` is the father o
 
 So Datalog can be used to express data. Not very interesting so far but a building block. These facts above can also be viewed as the existing state of the system, like we store state in files, or databases.
 
-But that's not enough. What about code? For Datalog, code are specified as _*rules*_ to be applied declaratively.
+But that's not enough. What about code? For Datalog, code is specified as rules(i.e. `if` like statements) which apply to all the facts in the database. These `if` like statements look slightly different from what you are used in programming languages.
 
 Let's say our program needs to find out who's a grandfather. We could write a rule like:
-'A person X is the grandfather of Z if X is the father of Y and Y is the father of Z'. In Datalog, this rule is written as:
+'A person X is the grandfather of Z if X is the father of Y and Y is the father of Z'. 
+
+In Datalog, this rule is written as:
  
 ```datalog
 grandfather(X, Z) :- father(X,Y), father(Y, Z)
