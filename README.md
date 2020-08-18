@@ -26,7 +26,7 @@ Marla   Kay
 Jane    Zanu
 ```
 
-In Datalog, we express the same data as(together):
+In Datalog, we express the same data as below. For convenience, we show it together:
 
 ```
 father('Aks', 'Bob')
