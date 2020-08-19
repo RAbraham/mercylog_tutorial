@@ -2,7 +2,7 @@
 
 Datalog is like SQL + Recursion. Its derivatives have reduced the code base by 50% or more.
 
-### Prelude
+### The Power in Constraint
 Today, I would like to explore a language called Datalog. Its a form of relational programming(like `SQL`) with a bit of logic programming(like Prolog) added to it, to make it a concise, elegant language. It may not be as expressive as Python and C++ but its constrained features give it some benefits.
 RAJ Explain below:
 * Declarative -> Allows optimization. See the success of SQL. 
