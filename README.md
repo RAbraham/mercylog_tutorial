@@ -15,6 +15,8 @@ RAJ->  What does declarative mean? "statements of a Datalog program can be state
 * Easy to build backends for
 * captures common patterns and prevent us from duplicating a lot of forms of programming
 
+RAJ: Check OneNote if you have noted other benefits of Datalog
+
 Because its constrained unlikeconstrained form of logic programming(e.g. Prolog) and may not be as expressive as C++ or Python. But its derivatives have been known to reduce the numbers of lines of code down by 50% or more([Overlog](https://dl.acm.org/citation.cfm?id=1755913.1755937), [Yedalog](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/43462.pdf)). 
 
 ### Syntax
