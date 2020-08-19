@@ -9,6 +9,8 @@ Today, I would like to explore a language called Datalog. Its a form of relation
 - A self driving car sofware can take declarative statments like 'Drive me from Home to Work'. How the software achieves that task can depend on traffic conditions, toll road preferences etc.
 - SQL is _theoretically_ declarative. When we write "SELECT * from TABLE_A INNER JOIN TABLE_B", each database(Oracle or PostgreSQL) are free to choose 'how' to achieve that goal. For e.g, Oracle may load `TABLE_A` into memory first because it's a small table while PostgreSQL may load `Table_B` into memory first because it is used more frequently. This is probably the worst explanation of SQL engines :P but hopefully you get the idea.
 
+- RAJ: Another aspect of declarativity may be that the order in which the statements appear does not matter unlike imperative languages.
+
 What does this declarativity give us? RAJ
 
 RAJ->  What does declarative mean? "statements of a Datalog program can be stated in any order. " Allows optimization. See the success of SQL. 
