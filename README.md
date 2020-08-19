@@ -3,9 +3,15 @@
 Datalog is like SQL + Recursion. Its derivatives have reduced the code base by 50% or more.
 
 ### The Power in Constraint
-Today, I would like to explore a language called Datalog. Its a form of relational programming(like `SQL`) with a bit of logic programming(like Prolog) added to it, to make it a concise, elegant language. It may not be as expressive as Python and C++ but its constrained features give it some benefits.
-RAJ Explain below:
-* Declarative -> Allows optimization. See the success of SQL. 
+Today, I would like to explore a language called Datalog. Its a form of relational programming(like `SQL`) with a bit of logic programming(like Prolog) added to it, to make it a concise, elegant language. It may not be as expressive as Python and C++ but its constrained features give it some benefits. 
+
+* Declarative: Declarative languages allow us to make 'statements' about our code i.e. 'what' we want to achieve without specifying 'how' we want to go about doing it. Some examples are:
+- A self driving car sofware can take declarative statments like 'Drive me from Home to Work'. How the software achieves that task can depend on traffic conditions, toll road preferences etc.
+- SQL is _theoretically_ declarative. When we write "SELECT * from TABLE_A INNER JOIN TABLE_B", each database(Oracle or PostgreSQL) are free to choose 'how' to achieve that goal. For e.g, Oracle may load `TABLE_A` into memory first because it's a small table while PostgreSQL may load `Table_B` into memory first because it is used more frequently. This is probably the worst explanation of SQL engines :P but hopefully you get the idea.
+
+What does this declarativity give us? RAJ
+
+RAJ->  What does declarative mean? "statements of a Datalog program can be stated in any order. " Allows optimization. See the success of SQL. 
 * Easy to build backends for
 * captures common patterns and prevent us from duplicating a lot of forms of programming
 
