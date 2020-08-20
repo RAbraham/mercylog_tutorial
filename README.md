@@ -249,6 +249,8 @@ rules = [
 
 In this way, using Python, we have modularized a pattern using the `transitive` function.
 
+RAJ: Add a recursive example.
+
 
 Let's recap the benefits of Mercylog
 - Simple Syntax. All you need to know is facts and rules. Because of such simplicity, it is also easy to build compilers for it.
