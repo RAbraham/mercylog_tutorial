@@ -263,3 +263,7 @@ Let's recap the benefits of Mercylog
 
 
 I'll continue to update you with my future learnings!
+
+
+# Additional Info
+* Calling Datalog as `SQL + Recursion` is not true. SQL does support recursion. The intution I'm going for is that most of us are acquainted with the relational non recursive aspect of SQL.
