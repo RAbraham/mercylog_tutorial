@@ -6,8 +6,10 @@ Datalog is like SQL + Recursion. Its derivatives have reduced the code base by 5
 Today, I would like to explore a language called Datalog. Its a form of relational programming(like SQL) with a bit of logic programming(like Prolog) added to it, to make it a concise, elegant language. It may not be as expressive as Python and C++ but its benefits lie in its constraints. 
 
 ### The Power in Constraint
+Relational programming constrains us to describe and capture the state of an application in relations(i.e. tables). The moment we can serialize state in relations, we can leverage parallelism or distributed systems as tables can be distributed and synchronized across processes/nodes using well understood database strategies like partitioning and replication. (RA: Ref Overlog). We could also simulate functional programming as we can imagine operations on a table or even the map reduce style popularized in big data. We could have multiple threads on the same machine work without sharing state(RA: This could be done with functional programming, making copies of objects and letting threads go wild but then how do we sync data changes. )
 
 ---------- Overlog: start  ------------------
+
 1. Distributed  systems  benefit  substantially  from  adata-centricdesign style that focuses the programmer’s atten-tion on carefully capturing all the important state of thesystem as a family of collections (sets, relations, streams,etc.) Given such a model, the state of the system can bedistributed naturally and flexibly across nodes via familiarmechanisms like partitioning and replication.
 
 2.The key behaviors of such systems can be naturally im-plemented usingdeclarativeprogramming languages thatmanipulate these collections, abstracting the programmerfrom both the physical layout of the data and the fine-grained orchestration of data manipulation
