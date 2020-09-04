@@ -1,0 +1,5 @@
+file: markdown
+sections:
+- file: intro
+- file: content
+- file: notebooks
